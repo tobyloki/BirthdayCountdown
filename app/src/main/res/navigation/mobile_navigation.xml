@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.birthdaycountdown.ViewsAndViewModels.Home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_birthday_countdown"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_birthday_countdown"
+        android:name="com.example.birthdaycountdown.ViewsAndViewModels.BirthdayCountdown.BirthdayCountdownFragment"
+        android:label="Birthday Countdown"
+        tools:layout="@layout/fragment_birthday_countdown">
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_slideshow"
+            app:destination="@id/nav_birthday_today"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_birthday_countdown"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_birthday_today"
+        android:name="com.example.birthdaycountdown.ViewsAndViewModels.BirthdayToday.BrithdayTodayFragment"
+        android:label="Happy Birthday!"
+        tools:layout="@layout/fragment_birthday_today" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.birthdaycountdown.ViewsAndViewModels.Settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_add_birthday"
+        android:name="com.example.birthdaycountdown.ViewsAndViewModels.AddBirthday.AddBirthdayFragment"
+        android:label="Add Birthday"
+        tools:layout="@layout/fragment_add_birthday" />
+</navigation>
